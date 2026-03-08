@@ -1,0 +1,27 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  skopos-logic-web:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Description: 'Skopos Logic Technologies Website'
+      InternetAccess: true
+    skopos-logic-web-function:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: custom-container
+        CodeUri: ./
+        CustomContainerConfig:
+          Image: crpi-ez8mdaksubl5qn6m.ap-southeast-1.personal.cr.aliyuncs.com/skoposlogic/skopos-website:latest
+          Port: 3000
+          AccelerationType: Default
+        MemorySize: 512
+        Timeout: 60
+        InstanceConcurrency: 10
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: anonymous
+            Methods: ['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'PATCH']
