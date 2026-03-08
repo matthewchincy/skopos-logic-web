@@ -1,13 +1,14 @@
+'use client';
+
+import Image from 'next/image';
+
 export default function Footer() {
     return (
         <footer className="bg-navy-900 text-gray-400 py-12 border-t border-gray-800">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-2">
-                        <svg className="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
-                        </svg>
-                        <span className="font-bold text-lg tracking-tight text-white">SKOPOS LOGIC</span>
+                        <Image src="/logo.png" alt="Skopos Logic" width={150} height={40} className="h-10 w-auto" />
                     </div>
                     <div className="flex items-center gap-6">
                         <a href="https://t.me/matthewchin" target="_blank" rel="noopener noreferrer" className="hover:text-teal-500 transition flex items-center gap-2">
